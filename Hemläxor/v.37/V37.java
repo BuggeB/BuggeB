@@ -5,9 +5,10 @@ public class V37 {
 
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("Whats your first name?");
+		System.out.println("Whats your name?");
 		String name = scan.next();
 		
-		System.out.println(name);
+		System.out.println("Whats your age?");
+	 	int age = scan.nextInt();
 	} 
 }
