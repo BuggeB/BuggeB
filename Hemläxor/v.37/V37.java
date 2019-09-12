@@ -11,6 +11,16 @@ public class V37 {
 		System.out.println("Whats your age?");
 	 	int age = scan.nextInt();
 	 	
-	 	System.out.println("Thank you " + name + ", you are " + age + " years old");
+	 	System.out.println("Vilken addres har du?");
+	 	String addres = scan.next();
+	 	
+	 	System.out.println("Vad är ditt postnummer?");
+	 	int postnummer = scan.nextInt();
+	 	
+	 	System.out.println("Vilken stad bor du i?");
+	 	String stad = scan.next();
+	 	
+	 	System.out.println("Vad är ditt telefonnummer?");
+	 	int telefonnummer = scan.nextInt();
 	} 
 }
