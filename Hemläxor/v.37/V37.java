@@ -10,5 +10,7 @@ public class V37 {
 		
 		System.out.println("Whats your age?");
 	 	int age = scan.nextInt();
+	 	
+	 	System.out.println("Thank you " + name + ", you are " + age + " years old");
 	} 
 }
