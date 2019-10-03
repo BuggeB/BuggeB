@@ -23,7 +23,7 @@ public class V37 {
 	 	System.out.println("Vad är ditt telefonnummer?");
 	 	int telefonnummer = scan.nextInt();
 	 	
-	 	System.out.println("Tack " + name + ", du är " + age + ", du bor på " + addres + " och ditt postnummer är: " + postnummer + " Bor i GULDSTADEN " + stad + " samt att du har " + telefonnummer + " som telefonnummer");
+	 	System.out.println("Tack " + name + ", du är " + age + ", du bor på " + addres + " och ditt postnummer är: " + postnummer + ", Bor i GULDSTADEN " + stad + " samt att du har " + telefonnummer + " som telefonnummer");
 	 	
 	} 
 }
