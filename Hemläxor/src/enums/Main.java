@@ -19,6 +19,7 @@ public class Main {
 		System.out.println(fallSpeed(2.5));
 		System.out.println(delta(1,10));
 		System.out.println(volumeToMass(FluidTable.WATER,1));
+		System.out.println(volumeToMass(GasTable.AIR,1));
 	} 
 	public static double farenheitToCelcius (double farenheit) {
 		double celcius = ((farenheit - 32)*5)/9;
@@ -55,6 +56,10 @@ public class Main {
 	}
 	public static double volumeToMass(FluidTable fluid, double volume) {
 		double volumeToMass = fluid.density*volume;
+		return volumeToMass;
+	}
+	public static double volumeToMass(GasTable gas, double volume) {
+		double volumeToMass = gas.density*volume;
 		return volumeToMass;
 	}
 }
