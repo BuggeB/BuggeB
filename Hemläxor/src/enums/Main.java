@@ -16,6 +16,7 @@ public class Main {
 		System.out.println(pressureUnderWater(10));
 		System.out.println(kineticEnergy(2,2));
 		System.out.println(potentialEnergy(2,5));
+		System.out.println(fallSpeed(2.5));
 	} 
 	public static double farenheitToCelcius (double farenheit) {
 		double celcius = ((farenheit - 32)*5)/9;
@@ -42,5 +43,10 @@ public class Main {
 		double potentialEnergy = mass*g_swe*height;
 		return potentialEnergy;
 	}
+	public static double fallSpeed(double height) {
+		double speed = Math.sqrt(2*g_swe*height);
+		return speed;
+	}
+	
 }
 
