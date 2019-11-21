@@ -17,6 +17,7 @@ public class Main {
 		System.out.println(kineticEnergy(2,2));
 		System.out.println(potentialEnergy(2,5));
 		System.out.println(fallSpeed(2.5));
+		System.out.println(delta(1,10));
 	} 
 	public static double farenheitToCelcius (double farenheit) {
 		double celcius = ((farenheit - 32)*5)/9;
@@ -46,6 +47,10 @@ public class Main {
 	public static double fallSpeed(double height) {
 		double speed = Math.sqrt(2*g_swe*height);
 		return speed;
+	}
+	public static double delta(double first, double last) {
+		double difference = last - first;
+		return difference;
 	}
 	
 }
