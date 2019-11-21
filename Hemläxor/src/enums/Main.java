@@ -12,6 +12,8 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println(farenheitToCelcius(50.0));
 		System.out.println(kelvinToCelcius(0));
+		System.out.println(fluidPressure(FluidTable.WATER, 10));
+		System.out.println(pressureUnderWater(10));
 	} 
 	public static double farenheitToCelcius (double farenheit) {
 		double celcius = ((farenheit - 32)*5)/9;
@@ -22,9 +24,14 @@ public class Main {
 		return celcius;
 	}
 	public static double fluidPressure(FluidTable fluid, double deep) {
-		double Pressure = 0;
-		Pressure = fluid.density*g_swe*deep;
-		return Pressure;
+		double FluidPressure = 0;
+		FluidPressure = fluid.density*g_swe*deep;
+		return FluidPressure;	
 	}
+	public static double pressureUnderWater(double deep) {
+		double pressureWaterPressure = FluidTable.WATER.density*g_swe*deep;
+		return pressureWaterPressure;
+	}
+	
 }
 
