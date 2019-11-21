@@ -22,6 +22,7 @@ public class Main {
 		System.out.println(volumeToMass(GasTable.AIR,1));
 		System.out.println(volumeToMass(SolidTable.IRON,1));
 		System.out.println(svtVelocity(10,5));
+		System.out.println(svtDistance(10,5));
 		
 	} 
 	public static double farenheitToCelcius (double farenheit) {
@@ -70,9 +71,12 @@ public class Main {
 		return volumeToMass;
 	}
 	public static double svtVelocity(double distance, double time) {
-		double svtVelocity = distance / time;
-		return svtVelocity;
+		double Velocity = distance / time;
+		return Velocity;
 	}
-	
+	public static double svtDistance(double velocity, double time) {
+		double Distance = velocity*time;
+		return Distance;
+	}
 }
 
