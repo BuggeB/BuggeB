@@ -24,6 +24,8 @@ public class Main {
 		System.out.println(svtVelocity(10,5));
 		System.out.println(svtDistance(10,5));
 		System.out.println(svtTime(10,2));
+		System.out.println(work(50,10));
+		
 		
 	} 
 	public static double farenheitToCelcius (double farenheit) {
@@ -83,6 +85,9 @@ public class Main {
 		double Time = distance / velocity;
 		return Time;
 	}
-	
+	public static double work(double force, double distance) {
+		double Work = force*distance;
+		return Work;
+	}
 }
 
