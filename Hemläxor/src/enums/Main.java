@@ -15,7 +15,8 @@ public class Main {
 		System.out.println(volumeToMassSolid(SolidTable.IRON, 0.06));
 		System.out.println(svtDistance (2.7, 3000));
 		System.out.println(heatFluid(FluidTable.WATER,4, FluidTable.WATER.boilPoint));
-		System.out.println();
+		System.out.println(fluidPressure(FluidTable.WATER, 75));
+		
 		
 		
 		System.out.println(farenheitToCelcius(50.0));
