@@ -10,6 +10,14 @@ public class Main {
 	
 
 	public static void main(String[] args) {
+		
+		
+		System.out.println(volumeToMassSolid(SolidTable.IRON, 0.06));
+		System.out.println(svtDistance (2.7, 3000));
+		System.out.println(heatFluid(FluidTable.WATER,4, FluidTable.WATER.boilPoint));
+		System.out.println();
+		
+		
 		System.out.println(farenheitToCelcius(50.0));
 		System.out.println(kelvinToCelcius(0));
 		System.out.println(fluidPressure(FluidTable.WATER, 10));
@@ -18,9 +26,9 @@ public class Main {
 		System.out.println(potentialEnergy(2,5));
 		System.out.println(fallSpeed(2.5));
 		System.out.println(delta(1,10));
-		System.out.println(volumeToMass(FluidTable.WATER,1));
-		System.out.println(volumeToMass(GasTable.AIR,1));
-		System.out.println(volumeToMass(SolidTable.IRON,1));
+		System.out.println(volumeToMassFluid(FluidTable.WATER,1));
+		System.out.println(volumeToMassGas(GasTable.AIR,1));
+		System.out.println(volumeToMassSolid(SolidTable.IRON,1));
 		System.out.println(svtVelocity(10,5));
 		System.out.println(svtDistance(10,5));
 		System.out.println(svtTime(10,2));
@@ -68,15 +76,15 @@ public class Main {
 		double difference = last - first;
 		return difference;
 	}
-	public static double volumeToMass(FluidTable fluid, double volume) {
+	public static double volumeToMassFluid(FluidTable fluid, double volume) {
 		double volumeToMass = fluid.density*volume;
 		return volumeToMass;
 	}
-	public static double volumeToMass(GasTable gas, double volume) {
+	public static double volumeToMassGas(GasTable gas, double volume) {
 		double volumeToMass = gas.density*volume;
 		return volumeToMass;
 	}
-	public static double volumeToMass(SolidTable solid, double volume) {
+	public static double volumeToMassSolid(SolidTable solid, double volume) {
 		double volumeToMass = solid.density*volume;
 		return volumeToMass;
 	}
