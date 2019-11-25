@@ -29,6 +29,7 @@ public class Main {
 		System.out.println(heatSolid(SolidTable.IRON,1,2));
 		System.out.println(heatFluid(FluidTable.WATER,1,10));
 		System.out.println(heatGas(GasTable.AIR,1,1));
+		System.out.println(velocityToHeight(9.82));
 		
 		
 		
@@ -110,6 +111,10 @@ public class Main {
 	public static double heatGas(GasTable gas, double mass, double deltaT) {
 		double heatGas = gas.heatCapacity * mass * deltaT;
 		return heatGas;
+	}
+	public static double velocityToHeight(double velocity) {
+		double velocityToHeight = Math.pow(velocity, 2)/(2*g_swe);
+		return velocityToHeight;
 	}
 	
 }
