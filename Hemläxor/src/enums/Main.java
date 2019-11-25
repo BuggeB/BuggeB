@@ -28,6 +28,8 @@ public class Main {
 		System.out.println(power(1000,2));
 		System.out.println(heatSolid(SolidTable.IRON,1,2));
 		System.out.println(heatFluid(FluidTable.WATER,1,10));
+		System.out.println(heatGas(GasTable.AIR,1,1));
+		
 		
 		
 		
@@ -105,7 +107,7 @@ public class Main {
 		double heatFluid = fluid.heatCapacity * mass * deltaT;
 		return heatFluid; 
 	}
-	public static double heat(GasTable gas, double mass, double deltaT) {
+	public static double heatGas(GasTable gas, double mass, double deltaT) {
 		double heatGas = gas.heatCapacity * mass * deltaT;
 		return heatGas;
 	}
