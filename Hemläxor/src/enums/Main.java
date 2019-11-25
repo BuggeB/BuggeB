@@ -26,6 +26,7 @@ public class Main {
 		System.out.println(svtTime(10,2));
 		System.out.println(work(50,10));
 		System.out.println(power(1000,2));
+		System.out.println(heatSolid(SolidTable.IRON,1,2));
 		
 		
 	} 
@@ -83,16 +84,28 @@ public class Main {
 		return Distance;
 	}
 	public static double svtTime(double distance, double velocity) {
-		double Time = distance / velocity;
-		return Time;
+		double time = distance / velocity;
+		return time;
 	}
 	public static double work(double force, double distance) {
-		double Work = force*distance;
-		return Work;
+		double work = force*distance;
+		return work;
 	}
 	public static double power(double work, double time) {
 		double power = work / time;
 		return power;
+	}
+	public static double heatSolid(SolidTable solid, double mass, double deltaT) {
+		double heat = solid.heatCapacity * mass * deltaT;
+		return heat;
+	}
+	public static double heatFluid(FluidTable fluid, double mass, double deltaT) {
+		double heatFluid = fluid.heatCapacity * mass * deltaT;
+		return heatFluid; 
+	}
+	public static double heat(GasTable gas, double mass, double deltaT) {
+		double heatGas = gas.heatCapacity * mass * deltaT;
+		return heatGas;
 	}
 }
 
