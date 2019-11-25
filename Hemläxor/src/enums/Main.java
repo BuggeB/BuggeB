@@ -27,6 +27,8 @@ public class Main {
 		System.out.println(work(50,10));
 		System.out.println(power(1000,2));
 		System.out.println(heatSolid(SolidTable.IRON,1,2));
+		System.out.println(heatFluid(FluidTable.WATER,1,10));
+		
 		
 		
 	} 
@@ -107,5 +109,6 @@ public class Main {
 		double heatGas = gas.heatCapacity * mass * deltaT;
 		return heatGas;
 	}
+	
 }
 
