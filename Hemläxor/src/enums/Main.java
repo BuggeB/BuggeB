@@ -16,6 +16,8 @@ public class Main {
 		System.out.println(svtDistance (2.7, 3000));
 		System.out.println(heatFluid(FluidTable.WATER,4, FluidTable.WATER.boilPoint));
 		System.out.println(fluidPressure(FluidTable.WATER, 75));
+		System.out.println(velocityToHeight (16.667));
+		System.out.println();
 		
 		
 		
