@@ -46,10 +46,20 @@ public class Main {
 		
 		
 	} 
+	/**
+	 * Gör om farenheight till celcius
+	 * @param farenheit Värdet för temperatur i farenheight
+	 * @return värdet i celcius
+	 */
 	public static double farenheitToCelcius (double farenheit) {
 		double celcius = ((farenheit - 32)*5)/9;
 		return celcius;
 	}
+	/**
+	 * Transforms Kvelvin to Celcius
+	 * @param kelvin The value of temperature in Kelvin
+	 * @return The value in Celcius
+	 */
 	public static double kelvinToCelcius (double kelvin) {
 		double celcius = (kelvin-273.15);
 		return celcius;
@@ -126,6 +136,10 @@ public class Main {
 	public static double velocityToHeight(double velocity) {
 		double velocityToHeight = Math.pow(velocity, 2)/(2*g_swe);
 		return velocityToHeight;
+	}
+	public static double Force (double mass) {
+		double Force = mass*g_swe;
+		return Force;
 	}
 	
 }
