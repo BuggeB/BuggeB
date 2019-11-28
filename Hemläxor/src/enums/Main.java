@@ -124,51 +124,113 @@ public class Main {
 		return volumeToMass;
 	}
 	/**
-	 * 
-	 * @param solid
-	 * @param volume
-	 * @return
+	 * en viss volym av materia till en massa
+	 * @param solid den specifika materian
+	 * @param volume Värdet av volymen
+	 * @return massan
 	 */
 	public static double volumeToMassSolid(SolidTable solid, double volume) {
 		double volumeToMass = solid.density*volume;
 		return volumeToMass;
 	}
+	/**
+	 * räknar ut medelhastigheten med hjälp av sträcka och tid
+	 * @param distance den specifika sträckan
+	 * @param time den specifika tiden
+	 * @return medelhastigheten
+	 */
 	public static double svtVelocity(double distance, double time) {
 		double Velocity = distance / time;
 		return Velocity;
 	}
+	/**
+	 * räknar ut sträcka med hjälp av hastighet och tid
+	 * @param velocity den specifika hastigheten
+	 * @param time den specifika tiden
+	 * @return sträckan
+	 */
 	public static double svtDistance(double velocity, double time) {
 		double Distance = velocity*time;
 		return Distance;
 	}
+	/**
+	 * räknar ut tid för hjälp av sträcka och hastighet
+	 * @param distance den specifika sträckan
+	 * @param velocity den specifika hastigheten
+	 * @return tiden
+	 */
 	public static double svtTime(double distance, double velocity) {
 		double time = distance / velocity;
 		return time;
 	}
+	/**
+	 * räknar ut arbete med hjälp av kraft och sträcka
+	 * @param force Värdet av kraften
+	 * @param distance den specifika sträckan
+	 * @return arbetet
+	 */
 	public static double work(double force, double distance) {
 		double work = force*distance;
 		return work;
 	}
+	/**
+	 * räknar ut effekt med hjälp av arbete och tid
+	 * @param work Värdet av arbetet
+	 * @param time den specifika tiden
+	 * @return Effekten
+	 */
 	public static double power(double work, double time) {
 		double power = work / time;
 		return power;
 	}
+	//Glömde skriva på engelska, så gör det i fortsättnignen från och med nu
+	/**
+	 * A method that calculates how much energy it takes to heat a specific material to specific celcius
+	 * @param solid The specific material
+	 * @param mass The value of the mass
+	 * @param deltaT The difference of the time
+	 * @return The energy
+	 */
 	public static double heatSolid(SolidTable solid, double mass, double deltaT) {
 		double heat = solid.heatCapacity * mass * deltaT;
 		return heat;
 	}
+	/**
+	 * A method that calculates how much energy it takes to heat a specific fluid to specific celcius
+	 * @param fluid The specific fluid
+	 * @param mass The value of the mass
+	 * @param deltaT The difference in time
+	 * @return The energy
+	 */
 	public static double heatFluid(FluidTable fluid, double mass, double deltaT) {
 		double heatFluid = fluid.heatCapacity * mass * deltaT;
 		return heatFluid; 
 	}
+	/**
+	 * A method that calulates how much energy it takes to heat a specific gas to specific celcius
+	 * @param gas The specific gas
+	 * @param mass The value of the mass
+	 * @param deltaT the difference in time
+	 * @return The energy
+	 */
 	public static double heatGas(GasTable gas, double mass, double deltaT) {
 		double heatGas = gas.heatCapacity * mass * deltaT;
 		return heatGas;
 	}
+	/**
+	 * A method that calculates how high up a object with a certain velocity can go upwards
+	 * @param velocity The specific velocity
+	 * @return The height
+	 */ 
 	public static double velocityToHeight(double velocity) {
 		double velocityToHeight = Math.pow(velocity, 2)/(2*g_swe);
 		return velocityToHeight;
 	}
+	/**
+	 * A method that transforms mass into force
+	 * @param mass the value of the mass
+	 * @return The force
+	 */
 	public static double Force (double mass) {
 		double Force = mass*g_swe;
 		return Force;
