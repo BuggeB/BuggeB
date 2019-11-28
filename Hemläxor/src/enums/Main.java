@@ -19,7 +19,12 @@ public class Main {
 		System.out.println(velocityToHeight (16.667));
 		System.out.println(power (work(Force(735),(100 / 3.6 * 4.8)),4.8));
 		System.out.println();
-		
+		//En nyfödd hundvalp väger 750 gram, med hur mycket kraft dras hundvalpen ner mot jorden?
+		System.out.println(Force (0.75));
+		//Hur mycket är 500 fahrenheit i grader?
+		System.out.println(fahrenheitToCelcius (500));
+		//Hur hög hastighet kommer en sten upp i som faller från 10 meter?
+		System.out.println(fallSpeed (10));
 
 		
 		
@@ -31,8 +36,8 @@ public class Main {
 	 * @param farenheit Värdet för temperatur i farenheight
 	 * @return värdet i celcius
 	 */
-	public static double farenheitToCelcius (double farenheit) {
-		double celcius = ((farenheit - 32)*5)/9;
+	public static double fahrenheitToCelcius (double fahrenheit) {
+		double celcius = ((fahrenheit - 32)*5)/9;
 		return celcius;
 	}
 	/**
@@ -183,7 +188,7 @@ public class Main {
 		double power = work / time;
 		return power;
 	}
-	//Glömde skriva på engelska, så gör det i fortsättnignen från och med nu
+	//Glömde skriva på engelska, så gör det i fortsättnignen från och med nu :)
 	/**
 	 * A method that calculates how much energy it takes to heat a specific material to specific celcius
 	 * @param solid The specific material
