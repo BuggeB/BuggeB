@@ -17,30 +17,9 @@ public class Main {
 		System.out.println(heatFluid(FluidTable.WATER,4, FluidTable.WATER.boilPoint));
 		System.out.println(fluidPressure(FluidTable.WATER, 75));
 		System.out.println(velocityToHeight (16.667));
-		System.out.println(power (work(Force(735),(100 * 3.6 * 4.8)),4.8));
+		System.out.println(power (work(Force(735),(100 / 3.6 * 4.8)),4.8));
 		
-		
-		
-		System.out.println(farenheitToCelcius(50.0));
-		System.out.println(kelvinToCelcius(0));
-		System.out.println(fluidPressure(FluidTable.WATER, 10));
-		System.out.println(pressureUnderWater(10));
-		System.out.println(kineticEnergy(2,2));
-		System.out.println(potentialEnergy(2,5));
-		System.out.println(fallSpeed(2.5));
-		System.out.println(delta(1,10));
-		System.out.println(volumeToMassFluid(FluidTable.WATER,1));
-		System.out.println(volumeToMassGas(GasTable.AIR,1));
-		System.out.println(volumeToMassSolid(SolidTable.IRON,1));
-		System.out.println(svtVelocity(10,5));
-		System.out.println(svtDistance(10,5));
-		System.out.println(svtTime(10,2));
-		System.out.println(work(50,10));
-		System.out.println(power(1000,2));
-		System.out.println(heatSolid(SolidTable.IRON,1,2));
-		System.out.println(heatFluid(FluidTable.WATER,1,10));
-		System.out.println(heatGas(GasTable.AIR,1,1));
-		System.out.println(velocityToHeight(9.82));
+
 		
 		
 		
