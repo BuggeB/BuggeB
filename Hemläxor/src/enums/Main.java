@@ -17,7 +17,7 @@ public class Main {
 		System.out.println(heatFluid(FluidTable.WATER,4, FluidTable.WATER.boilPoint));
 		System.out.println(fluidPressure(FluidTable.WATER, 75));
 		System.out.println(velocityToHeight (16.667));
-		System.out.println();
+		System.out.println(power (work(Force(735),(100 * 3.6 * 4.8)),4.8));
 		
 		
 		
@@ -56,14 +56,15 @@ public class Main {
 		return celcius;
 	}
 	/**
-	 * Transforms Kvelvin to Celcius
-	 * @param kelvin The value of temperature in Kelvin
-	 * @return The value in Celcius
+	 * Gör om Kelvin till Celcius
+	 * @param kelvin Värdet för temeratur för Kelvin
+	 * @return Värdet i Celcius
 	 */
 	public static double kelvinToCelcius (double kelvin) {
 		double celcius = (kelvin-273.15);
 		return celcius;
 	}
+	
 	public static double fluidPressure(FluidTable fluid, double deep) {
 		double FluidPressure = 0;
 		FluidPressure = fluid.density*g_swe*deep;
