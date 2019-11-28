@@ -18,6 +18,7 @@ public class Main {
 		System.out.println(fluidPressure(FluidTable.WATER, 75));
 		System.out.println(velocityToHeight (16.667));
 		System.out.println(power (work(Force(735),(100 / 3.6 * 4.8)),4.8));
+		System.out.println();
 		
 
 		
@@ -43,40 +44,91 @@ public class Main {
 		double celcius = (kelvin-273.15);
 		return celcius;
 	}
-	
+	/**
+	 * Räknar ut vätsketrycket i en viss vätska vid ett visst djup
+	 * @param fluid Den specifika vätskan
+	 * @param deep Det exakta djupet
+	 * @return  Vätsketrycket
+	 */
 	public static double fluidPressure(FluidTable fluid, double deep) {
 		double FluidPressure = 0;
 		FluidPressure = fluid.density*g_swe*deep;
 		return FluidPressure;	
 	}
+	/**
+	 * Räknar ut vätsketrycket i vatten vid ett visst djup
+	 * @param deep Det exakta djupet
+	 * @return Vattentrycket
+	 */
 	public static double pressureUnderWater(double deep) {
 		double pressureWaterPressure = FluidTable.WATER.density*g_swe*deep;
 		return pressureWaterPressure;
 	}
+	/**
+	 * räknar ut kinetisk energi med hjälp av massa och hastighet
+	 * @param mass Värdet för massan
+	 * @param velocity Värdet för hastigheten
+	 * @return Den kinetiska energin
+	 */
 	public static double kineticEnergy(double mass, double velocity) {
 		double kineticEnergy = 0.5*mass*Math.pow(velocity, 2);
 		return kineticEnergy;
 	}
+	/**
+	 * räknar ut potentiell energi med hjälp av massa och höjd
+	 * @param mass Värdet för massan
+	 * @param height Värdet för höjden
+	 * @return den potentiella energin
+	 */
 	public static double potentialEnergy(double mass, double height) {
 		double potentialEnergy = mass*g_swe*height;
 		return potentialEnergy;
 	}
+	/**
+	 * räknar ut hur hög hastighet man kommer upp i som man släpper ett föremål från en viss höjd
+	 * @param height Värdet för höjden
+	 * @return Hastigheten
+	 */
 	public static double fallSpeed(double height) {
 		double speed = Math.sqrt(2*g_swe*height);
 		return speed;
 	}
+	/**
+	 * räknar ut skillnad mellan två givna värden
+	 * @param first första värdet
+	 * @param last andra värdet
+	 * @return skillnaden mellan värdena
+	 */
 	public static double delta(double first, double last) {
 		double difference = last - first;
 		return difference;
 	}
+	/**
+	 * gör om en viss volym av vätska till en massa
+	 * @param fluid den specifika vätskan
+	 * @param volume Värdet av volymen
+	 * @return massan
+	 */
 	public static double volumeToMassFluid(FluidTable fluid, double volume) {
 		double volumeToMass = fluid.density*volume;
 		return volumeToMass;
 	}
+	/**
+	 * gör om en viss volym av gas till en massa
+	 * @param gas den specifika gasen
+	 * @param volume Värdet av volymen
+	 * @return massan
+	 */
 	public static double volumeToMassGas(GasTable gas, double volume) {
 		double volumeToMass = gas.density*volume;
 		return volumeToMass;
 	}
+	/**
+	 * 
+	 * @param solid
+	 * @param volume
+	 * @return
+	 */
 	public static double volumeToMassSolid(SolidTable solid, double volume) {
 		double volumeToMass = solid.density*volume;
 		return volumeToMass;
