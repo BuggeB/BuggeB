@@ -18,7 +18,7 @@ public class Main {
 		System.out.println(fluidPressure(FluidTable.WATER, 75));
 		System.out.println(velocityToHeight (16.667));
 		System.out.println(power (work(Force(735),(100 / 3.6 * 4.8)),4.8));
-		System.out.println();
+		System.out.println(Uppgift7(1,12,0.5));
 		//En nyfödd hundvalp väger 750 gram, med hur mycket kraft dras hundvalpen ner mot jorden?
 		System.out.println(Force (0.75));
 		//Hur mycket är 500 fahrenheit i grader?
@@ -240,6 +240,22 @@ public class Main {
 		double Force = mass*g_swe;
 		return Force;
 	}
-	
+	public static int Uppgift7 (double mass, double h,double mH){
+		int studs = 0;
+
+
+
+		while ( h > mH) {
+
+		double E = mass* g_swe*h;
+		E = E * 0.99;
+		h = E/(mass * g_swe);
+		studs++;
+
+		}
+		return studs;
+		}
+
+
 }
 
