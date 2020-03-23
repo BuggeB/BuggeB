@@ -29,6 +29,16 @@ public class UppgitTalspelet {
 				break;
 			}
 		}
+		RandomNumber();
+
+		while (playerGuess != RightAnswer) {
+			System.out.println("Skriv en siffra: ");
+			playerGuess = Exception();
+			Hints++;
+			EasyHint();
+			MediumHint();
+			HardHint();
+		}
 	}
 
 	public static int Exception() {
@@ -63,42 +73,53 @@ public class UppgitTalspelet {
 		}
 
 	}
-	public static void MediumHint () {
-		 if (EasyMediumHard == 2) {
-			 if (playerGuess < RightAnswer-5) {
-				 System.out.println("Du är långt ifrån!");
-				 System.out.println("Antal Gissningar " + Hints);
-			 }
-			 else if (playerGuess > RightAnswer+5) {
-				 System.out.println("Du är långt ifrån!");
-				 System.out.println("Antal Gissningar " + Hints);
-			 }
-			 else {
-				 System.out.println("Du är nära!");
-				 System.out.println("Antal Gissningar " + Hints);
-			 }
-			 if (playerGuess == RightAnswer) {
-				 System.out.println("Du gissade rätt!");
-				 Result ();
-			 }
-		 }
-	 }
-	public static void HardHint () {
-		 if (EasyMediumHard == 3) {
-			 if (playerGuess < RightAnswer) {
-				 System.out.println("Du gissade fel, försök igen!");
-				 System.out.println("Antal Gissningar " + Hints);
-			 }
-			 else if (playerGuess > RightAnswer) {
-				 System.out.println("Du gissade fel, försök igen!");
-				 System.out.println("Antal Gissningar " + Hints);
-			 }
-			 else if (playerGuess == RightAnswer) {
-				 System.out.println("Du gissade rätt!");
-				 Result ();
-			 }
-		 }
-	 }
+
+	public static void MediumHint() {
+		if (EasyMediumHard == 2) {
+			if (playerGuess < RightAnswer - 5) {
+				System.out.println("Du är långt ifrån!");
+				System.out.println("Antal Gissningar " + Hints);
+			} else if (playerGuess > RightAnswer + 5) {
+				System.out.println("Du är långt ifrån!");
+				System.out.println("Antal Gissningar " + Hints);
+			} else {
+				System.out.println("Du är nära!");
+				System.out.println("Antal Gissningar " + Hints);
+			}
+			if (playerGuess == RightAnswer) {
+				System.out.println("Du gissade rätt!");
+				Result();
+			}
+		}
+	}
+
+	public static void HardHint() {
+		if (EasyMediumHard == 3) {
+			if (playerGuess < RightAnswer) {
+				System.out.println("Du gissade fel, försök igen!");
+				System.out.println("Antal Gissningar " + Hints);
+			} else if (playerGuess > RightAnswer) {
+				System.out.println("Du gissade fel, försök igen!");
+				System.out.println("Antal Gissningar " + Hints);
+			} else if (playerGuess == RightAnswer) {
+				System.out.println("Du gissade rätt!");
+				Result();
+			}
+		}
+	}
+
+	public static void Result() {
+		System.out.println(Hints);
+		System.out.println("Skriv 1 för att starta om, Skriv 2 om du vill avlsuta spelet");
+		int UserChoice = Exception();
+		if (UserChoice == 1) {
+			TalSpelet();
+		} else if (UserChoice == 2) {
+			System.exit(0);
+		} else {
+			System.out.println("Skriv 1 för att starta om, Skriv 2 om du vill avlsuta spelet");
+		}
+	}
 
 	public static void RandomNumber() {
 		if (EasyMediumHard == 1 || EasyMediumHard == 2 || EasyMediumHard == 3) {
