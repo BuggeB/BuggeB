@@ -30,4 +30,15 @@ public class UppgitTalspelet {
 			}
 		}
 	}
+
+	public static void RandomNumber() {
+		if (EasyMediumHard == 1 || EasyMediumHard == 2 || EasyMediumHard == 3) {
+			RightAnswer = rand.nextInt(26);
+		}
+	}
+
+	public static void regler() {
+		System.out.println(
+				"Spelets Regler: \n Du väljer en svåirghets grad Lätt/Medel/Svår \n Gissa på ett tal mellan 1-25 \n Gissar du fel kommer du få ledtrådar som hjälper dig exluderat den svåraste leveln \n Om du får slut på gissningar vinner jag \n Om du gissar på rätt tal vinner du \n Lycka till! ");
+	}
 }
