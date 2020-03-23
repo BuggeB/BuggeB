@@ -149,7 +149,7 @@ public class UppgitTalspelet {
 	}
 
 	/**
-	 * Denna metod förklarar reglerna för talspelet
+	 * Denna metod förklarar reglerna för talspelet.
 	 */
 	public static void regler() {
 		System.out.println(
