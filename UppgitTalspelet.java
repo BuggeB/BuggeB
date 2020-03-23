@@ -30,19 +30,76 @@ public class UppgitTalspelet {
 			}
 		}
 	}
-	public static int Exception () {
-		 String WrongFromUser = "";
-		 while (true) {
-			 WrongFromUser = input.nextLine();
-			 try {
-				 return Integer.parseInt(WrongFromUser);
-				 
-			 } catch (Exception e) {
-				 System.out.println("Fel input! Du måste skriva siffror!");
-				 input.hasNext();
+
+	public static int Exception() {
+		String WrongFromUser = "";
+		while (true) {
+			WrongFromUser = input.nextLine();
+			try {
+				return Integer.parseInt(WrongFromUser);
+
+			} catch (Exception e) {
+				System.out.println("Fel input! Du måste skriva siffror!");
+				input.hasNext();
+			}
+		}
+	}
+
+	public static void EasyHint() {
+		if (EasyMediumHard == 1) {
+			if (Hints == 7) {
+				System.out.println("Du har förlorat!");
+				Result();
+			} else if (playerGuess < RightAnswer) {
+				System.out.println("Talet är större!");
+				System.out.println("Antal Gissningar " + Hints);
+			} else if (playerGuess > RightAnswer) {
+				System.out.println("Talet är mindre!");
+				System.out.println("Antal Gissningar " + Hints);
+			} else if (playerGuess == RightAnswer) {
+				System.out.println("Du gissade rätt!");
+				Result();
+			}
+		}
+
+	}
+	public static void MediumHint () {
+		 if (EasyMediumHard == 2) {
+			 if (playerGuess < RightAnswer-5) {
+				 System.out.println("Du är långt ifrån!");
+				 System.out.println("Antal Gissningar " + Hints);
+			 }
+			 else if (playerGuess > RightAnswer+5) {
+				 System.out.println("Du är långt ifrån!");
+				 System.out.println("Antal Gissningar " + Hints);
+			 }
+			 else {
+				 System.out.println("Du är nära!");
+				 System.out.println("Antal Gissningar " + Hints);
+			 }
+			 if (playerGuess == RightAnswer) {
+				 System.out.println("Du gissade rätt!");
+				 Result ();
 			 }
 		 }
 	 }
+	public static void HardHint () {
+		 if (EasyMediumHard == 3) {
+			 if (playerGuess < RightAnswer) {
+				 System.out.println("Du gissade fel, försök igen!");
+				 System.out.println("Antal Gissningar " + Hints);
+			 }
+			 else if (playerGuess > RightAnswer) {
+				 System.out.println("Du gissade fel, försök igen!");
+				 System.out.println("Antal Gissningar " + Hints);
+			 }
+			 else if (playerGuess == RightAnswer) {
+				 System.out.println("Du gissade rätt!");
+				 Result ();
+			 }
+		 }
+	 }
+
 	public static void RandomNumber() {
 		if (EasyMediumHard == 1 || EasyMediumHard == 2 || EasyMediumHard == 3) {
 			RightAnswer = rand.nextInt(26);
