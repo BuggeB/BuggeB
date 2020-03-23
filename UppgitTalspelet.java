@@ -30,7 +30,19 @@ public class UppgitTalspelet {
 			}
 		}
 	}
-
+	public static int Exception () {
+		 String WrongFromUser = "";
+		 while (true) {
+			 WrongFromUser = input.nextLine();
+			 try {
+				 return Integer.parseInt(WrongFromUser);
+				 
+			 } catch (Exception e) {
+				 System.out.println("Fel input! Du måste skriva siffror!");
+				 input.hasNext();
+			 }
+		 }
+	 }
 	public static void RandomNumber() {
 		if (EasyMediumHard == 1 || EasyMediumHard == 2 || EasyMediumHard == 3) {
 			RightAnswer = rand.nextInt(26);
