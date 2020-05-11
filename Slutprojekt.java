@@ -85,7 +85,7 @@ public class Slutprojekt {
 			System.out.print(ch);
 			System.out.print(" ");
 		}
-		System.out.println();
+		System.out.println(word);
 	}
 
 	public static void regler() {
