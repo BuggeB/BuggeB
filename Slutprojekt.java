@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Slutprojekt {
@@ -10,6 +13,7 @@ public class Slutprojekt {
 	static String[] hardWords = {"Banan"};
 	static String word;
 	static String unknown;
+	static List<String> wrongGuess = new ArrayList<String>();
 	
 	public static void main(String[] args) {
 		Spelet();
@@ -25,11 +29,37 @@ public class Slutprojekt {
 		while (playerGuess < 10) {
 			System.out.println("Gissa på en bokstav");
 			String guess = input.next();
+			hang(guess);
 		}
+		
 	}
 	
 	public static void hang(String guess) {
-		
+		String newUnknown = "";
+		for (int i = 0; i<word.length(); i++) {
+			if(word.charAt(i) == guess.charAt(0)) {
+				newUnknown += guess.charAt(0);
+			}
+			else if (unknown.charAt(i)!="_".charAt(0)) {
+				newUnknown += unknown.charAt(i);
+			}
+			else {
+				newUnknown += "_";
+			}
+		}
+		if (unknown.equals(newUnknown)) {
+			playerGuess++;
+			wrongGuess.add(guess);
+			System.out.println(Arrays.toString(wrongGuess.toArray()));
+			System.out.println("Fel gissning!");
+		}
+		else {
+			unknown = newUnknown;
+			System.out.println("Rätt gissning!");
+		}
+		if (unknown.equalsIgnoreCase(word)) {
+			System.out.println("Grattis du vann!");
+		}
 	}
 	
 	public static void chooseDifficulty() {
@@ -41,7 +71,8 @@ public class Slutprojekt {
 		else {
 			word = easyWords [(int) (Math.random() * hardWords.length)];
 		}
-
+		unknown = new String(new char[word.length()]).replace("\0", "_");
+		System.out.println(word+" "+unknown);
 	}
 
 	public static void regler() {
