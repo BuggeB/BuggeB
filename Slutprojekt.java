@@ -21,10 +21,27 @@ public class Slutprojekt {
 		regler();
 		System.out.println("Vad heter du?");
 		String userInput = input.nextLine();
-		while (true) {
-			System.out.println("Välj svårighetsgrad: \n 1 (Lätt) \n 2 (Svår)");
-			difficulties = Exception();
+		chooseDifficulty();
+		while (playerGuess < 10) {
+			System.out.println("Gissa på en bokstav");
+			String guess = input.next();
 		}
+	}
+	
+	public static void hang(String guess) {
+		
+	}
+	
+	public static void chooseDifficulty() {
+			System.out.println("Välj svårighetsgrad: \n 1 (Lätt) \n 2 (Svår)");
+			difficulties = input.nextInt();
+		if(difficulties == 1) {
+			word = easyWords [(int) (Math.random() * easyWords.length)];
+		}
+		else {
+			word = easyWords [(int) (Math.random() * hardWords.length)];
+		}
+
 	}
 
 	public static void regler() {
