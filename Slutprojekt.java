@@ -3,9 +3,14 @@ import java.util.Scanner;
 public class Slutprojekt {
 
 	static Scanner input = new Scanner(System.in);
-	static String playername;
+	static String userInput;
 	static int difficulties;
-
+	static int playerGuess = 0;
+	static String[] easyWords = {"Hej"};
+	static String[] hardWords = {"Banan"};
+	static String word;
+	static String unknown;
+	
 	public static void main(String[] args) {
 		Spelet();
 
@@ -15,7 +20,7 @@ public class Slutprojekt {
 		System.out.println("Välkommen till Hänga Gubbe!");
 		regler();
 		System.out.println("Vad heter du?");
-		String playername = input.nextLine();
+		String userInput = input.nextLine();
 		while (true) {
 			System.out.println("Välj svårighetsgrad: \n 1 (Lätt) \n 2 (Svår)");
 			difficulties = Exception();
