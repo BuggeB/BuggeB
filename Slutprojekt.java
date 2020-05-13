@@ -76,7 +76,7 @@ public class Slutprojekt {
 			playerGuess = 0;
 			wrongGuess = new ArrayList<String>();
 			System.out.println("Om du vill spela igen klicka 1, om du vill avsluta klicka 2");
-			int answer = input.nextInt();
+			int answer = exception("Om du vill spela igen klicka 1, om du vill avsluta klicka 2");
 			if (answer == 2) {
 				restart = false;
 				System.out.println("Tack för att du spelade!");
@@ -90,7 +90,7 @@ public class Slutprojekt {
 	 */
 	public static void chooseDifficulty() {
 		System.out.println("Välj svårighetsgrad: \n 1 (Lätt) \n 2 (Svår)");
-		difficulties = exception();
+		difficulties = exception("Välj svårighetsgrad: \n 1 (Lätt) \n 2 (Svår)");
 		if (difficulties == 1) {
 			Random r = new Random();
 			int wordIndex = r.nextInt(easyWords.length);
@@ -142,17 +142,20 @@ public class Slutprojekt {
 	   int. 
 	 * @return Den skrivna integern
 	 */
-	public static int exception() {
+	public static int exception(String message) {
 		while (true) {
+			String WrongFromUser = input.nextLine();
+			if (WrongFromUser.length() > 0) { // Kollar om strängen har ett värde i sig
 			try {
-				int WrongFromUser = input.nextInt();
-				return WrongFromUser;
+				return Integer.parseUnsignedInt(WrongFromUser);
 
 			} catch (Exception e) {
 				System.out.println("Fel input! Du måste skriva 1 eller 2!");
-				System.out.println(e);
+				System.out.println(message);
 				input.hasNext();
+				
 			}
+		 }
 		}
 	}
 }
