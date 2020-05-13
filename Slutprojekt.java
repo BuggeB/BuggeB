@@ -38,6 +38,7 @@ public class Slutprojekt {
 	}
 
 	public static void hang(String guess) {
+		if ()
 		String newUnknown = formatWord(guess);
 		
 		if (unknown.equals(newUnknown)) {
