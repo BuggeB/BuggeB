@@ -12,8 +12,8 @@ public class Slutprojekt {
 	static String userInput; // Gör så att konsolen sparar namnet
 	static int difficulties; // Gör så att konsolen sparar svårighetsgraden
 	static int playerGuess = 0; // Räknar antalet gissningar spelaren har gissat
-	static String[] easyWords = { "Hej", "Banan" }; // En lista över alla lätta ord
-	static String[] hardWords = { "Banan" }; // En lista över alla svåra ord
+	static String[] easyWords = { "Sko", "Banan", "Mask", "tåg", "äpple", "val", "bok", "rik", "bil", "hatt" }; // En lista över alla lätta ord
+	static String[] hardWords = { "hypernervokustiskadiafragmakontravibrationer", "acklamation", "dagrehabilitering", "personalkostnadstillägg", "reglemente", "självförvaltningsorgan", "kärnverksamheter", "intrudoktionsersättning", "slutprojekt" }; // En lista över alla svåra ord
 	static String word; // Det valda ordet
 	static String unknown; // Den onsynliga varianten av det valda ordet
 	static List<String> wrongGuess = new ArrayList<String>(); // En lista med alla felaktiga gissningar
@@ -116,8 +116,7 @@ public class Slutprojekt {
 
 	/**
 	 * Den här metoden formaterar en String beroende på kända bokstäver. Det spelar
-	 * ingen roll om bokstaven är liten eller stor.
-	 * 
+	   ingen roll om bokstaven är liten eller stor. 
 	 * @param guess den är bokstaven som spelaren har gissat på.
 	 * @return en String som är formaterad
 	 */
@@ -139,9 +138,8 @@ public class Slutprojekt {
 
 	/**
 	 * Denna metod gör så att om man skriver in en bokstav där man ska skriva in en
-	 * int så skickar den tillbaka ett meddelande som säger att man måste skriva en
-	 * int.
-	 * 
+	   int så skickar den tillbaka ett meddelande som säger att man måste skriva en
+	   int. 
 	 * @return Den skrivna integern
 	 */
 	public static int exception() {
