@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Slutprojekt {
@@ -9,7 +10,7 @@ public class Slutprojekt {
 	static String userInput;
 	static int difficulties;
 	static int playerGuess = 0;
-	static String[] easyWords = { "Hej" };
+	static String[] easyWords = { "Hej", "Banan" };
 	static String[] hardWords = { "Banan" };
 	static String word;
 	static String unknown;
@@ -27,8 +28,6 @@ public class Slutprojekt {
 		System.out.println("Vad heter du?");
 		String userInput = input.nextLine();
 		while(restart) {
-			
-		
 		chooseDifficulty();
 		while (playerGuess < 10 && unknown.contains("_")) {
 			System.out.println("Gissa på en bokstav");
@@ -39,21 +38,11 @@ public class Slutprojekt {
 	}
 
 	public static void hang(String guess) {
-		String newUnknown = "";
-		for (int i = 0; i < word.length(); i++) {
-			char wordChar = Character.toLowerCase(word.charAt(i));
-			char guessChar = Character.toLowerCase(guess.charAt(0));
-			if (wordChar == guessChar) {
-				newUnknown += guessChar;
-			} else if (unknown.charAt(i) != "_".charAt(0)) {
-				newUnknown += unknown.charAt(i);
-			} else {
-				newUnknown += "_";
-			}
-		}
+		String newUnknown = formatWord(guess);
+		
 		if (unknown.equals(newUnknown)) {
 			playerGuess++;
-			wrongGuess.add(guess);
+			wrongGuess.add(guess.toLowerCase());
 			System.out.println(Arrays.toString(wrongGuess.toArray()));
 			System.out.println("Fel gissning!");
 		} else {
@@ -74,9 +63,11 @@ public class Slutprojekt {
 
 	public static void chooseDifficulty() {
 		System.out.println("Välj svårighetsgrad: \n 1 (Lätt) \n 2 (Svår)");
-		difficulties = input.nextInt();
+		difficulties = exception();
 		if (difficulties == 1) {
-			word = easyWords[(int) (Math.random() * easyWords.length)];
+			Random r = new Random();
+			int wordIndex = r.nextInt(easyWords.length);
+			word = easyWords[wordIndex];
 		} else {
 			word = hardWords[(int) (Math.random() * hardWords.length)];
 		}
@@ -85,15 +76,30 @@ public class Slutprojekt {
 			System.out.print(ch);
 			System.out.print(" ");
 		}
-		System.out.println(word);
+		System.out.println();
 	}
 
 	public static void regler() {
 		System.out.println(
 				"Spelets regler: \n Välj svårighetsgrad, klicka 1 för lättare grad, klicka 2 för lite utmaning \n Gissa på ordet \n Gissar du rätt på en bokstav kommer den komma upp i ordet \n Gissar du rätt på hela ordet vinner du \n Lycka till!");
 	}
+	public static String formatWord(String guess) {
+		String newUnknown = "";
+		for (int i = 0; i < word.length(); i++) {
+			char wordChar = Character.toLowerCase(word.charAt(i));
+			char guessChar = Character.toLowerCase(guess.charAt(0));
+			if (wordChar == guessChar) {
+				newUnknown += guessChar;
+			} else if (unknown.charAt(i) != "_".charAt(0)) {
+				newUnknown += unknown.charAt(i);
+			} else {
+				newUnknown += "_";
+			}
+		}
+		return newUnknown;
+	}
 
-	public static int Exception() {
+	public static int exception() {
 		String WrongFromUser = "";
 		while (true) {
 			WrongFromUser = input.nextLine();
