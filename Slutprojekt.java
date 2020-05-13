@@ -6,22 +6,28 @@ import java.util.Scanner;
 
 public class Slutprojekt {
 
-	static Scanner input = new Scanner(System.in);
-	static String userInput;
-	static int difficulties;
-	static int playerGuess = 0;
-	static String[] easyWords = { "Hej", "Banan" };
-	static String[] hardWords = { "Banan" };
-	static String word;
-	static String unknown;
-	static List<String> wrongGuess = new ArrayList<String>();
-	static boolean restart = true;
+	static Scanner input = new Scanner(System.in); //Initierar Scannern
+	static String userInput; // Gör så att konsolen sparar namnet
+	static int difficulties; // Gör så att konsolen sparar svårighetsgraden
+	static int playerGuess = 0; // Räknar antalet gissningar spelaren har gissat
+	static String[] easyWords = { "Hej", "Banan" }; // En lista över alla lätta ord
+	static String[] hardWords = { "Banan" }; // En lista över alla svåra ord
+	static String word; // Det valda ordet
+	static String unknown; // Den onsynliga varianten av det valda ordet
+	static List<String> wrongGuess = new ArrayList<String>(); // En lista med alla felaktiga gissningar
+	static boolean restart = true; // Variabel som säger om koden kommer köra igen
 
-	public static void main(String[] args) {
+	/**
+	 * Startar själva spelet
+	 */
+	public static void main() {
 		Spelet();
 
 	}
 
+	/**
+	 * Den här metoden introducerar själva spelet, sedan börjar den en loop som kör de andra metoderna.
+	 */
 	public static void Spelet() {
 		System.out.println("Välkommen till Hänga Gubbe!");
 		regler();
@@ -36,7 +42,13 @@ public class Slutprojekt {
 		}
 		}
 	}
-
+	/**
+	 * Den här metoden börjar med att jämföra det felaktiga gissningarna med den nuvarande gissningen
+	   för att säkerställa att bokstaven inte har gissats på tidigare. 
+	   Sedan så kallar den på "formatWord" och sedan jämför resultatet med tidigare gissningar för att 
+	   se status i spelet.
+	 * @param guess den är bokstaven som spelaren har gissat på.
+	 */
 	public static void hang(String guess) {
 		if (wrongGuess.contains(guess.toLowerCase())) {
 			System.out.println("Du har redan gissat på denna bokstav!");
@@ -48,7 +60,8 @@ public class Slutprojekt {
 			playerGuess++;
 			wrongGuess.add(guess.toLowerCase());
 			System.out.println(Arrays.toString(wrongGuess.toArray()));
-			System.out.println("Fel gissning!");
+			int remainingGuesses = 10-playerGuess;
+			System.out.println("Fel gissning du har " + remainingGuesses + " gissningar kvar!");
 		} else {
 			unknown = newUnknown;
 			System.out.println("Rätt gissning!");
@@ -56,6 +69,8 @@ public class Slutprojekt {
 		}
 		if (unknown.equalsIgnoreCase(word)) {
 			System.out.println("Grattis du vann!");
+			playerGuess = 0;
+			wrongGuess = new ArrayList<String>();
 			System.out.println("Om du vill spela igen klicka 1, om du vill avsluta klicka 2");
 			int answer = input.nextInt();
 			if (answer == 2) {
@@ -104,14 +119,14 @@ public class Slutprojekt {
 	}
 
 	public static int exception() {
-		String WrongFromUser = "";
 		while (true) {
-			WrongFromUser = input.nextLine();
 			try {
-				return Integer.parseInt(WrongFromUser);
+				int WrongFromUser = input.nextInt();
+				return WrongFromUser;
 
 			} catch (Exception e) {
 				System.out.println("Fel input! Du måste skriva 1 eller 2!");
+				System.out.println(e);
 				input.hasNext();
 			}
 		}
