@@ -1,3 +1,5 @@
+
+// Alla paket som importeras
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +8,7 @@ import java.util.Scanner;
 
 public class Slutprojekt {
 
-	static Scanner input = new Scanner(System.in); //Initierar Scannern
+	static Scanner input = new Scanner(System.in); // Initierar Scannern
 	static String userInput; // Gör så att konsolen sparar namnet
 	static int difficulties; // Gör så att konsolen sparar svårighetsgraden
 	static int playerGuess = 0; // Räknar antalet gissningar spelaren har gissat
@@ -18,7 +20,7 @@ public class Slutprojekt {
 	static boolean restart = true; // Variabel som säger om koden kommer köra igen
 
 	/**
-	 * Startar själva spelet
+	 * Startar själva hänga gubbe spelet
 	 */
 	public static void main() {
 		Spelet();
@@ -26,27 +28,29 @@ public class Slutprojekt {
 	}
 
 	/**
-	 * Den här metoden introducerar själva spelet, sedan börjar den en loop som kör de andra metoderna.
+	 * Den här metoden introducerar själva spelet, sedan börjar den en loop som kör
+	 * de andra metoderna.
 	 */
 	public static void Spelet() {
 		System.out.println("Välkommen till Hänga Gubbe!");
 		regler();
 		System.out.println("Vad heter du?");
 		String userInput = input.nextLine();
-		while(restart) {
-		chooseDifficulty();
-		while (playerGuess < 10 && unknown.contains("_")) {
-			System.out.println("Gissa på en bokstav");
-			String guess = input.next();
-			hang(guess);
-		}
+		while (restart) {
+			chooseDifficulty();
+			while (playerGuess < 10 && unknown.contains("_")) {
+				System.out.println("Gissa på en bokstav");
+				String guess = input.next();
+				hang(guess);
+			}
 		}
 	}
+
 	/**
-	 * Den här metoden börjar med att jämföra det felaktiga gissningarna med den nuvarande gissningen
-	   för att säkerställa att bokstaven inte har gissats på tidigare. 
-	   Sedan så kallar den på "formatWord" och sedan jämför resultatet med tidigare gissningar för att 
-	   se status i spelet.
+	 * Den här metoden börjar med att jämföra det felaktiga gissningarna med den
+	   nuvarande gissningen för att säkerställa att bokstaven inte har gissats på
+	   tidigare. Sedan så kallar den på "formatWord" och sedan jämför resultatet med
+	   tidigare gissningar för att se status i spelet.
 	 * @param guess den är bokstaven som spelaren har gissat på.
 	 */
 	public static void hang(String guess) {
@@ -55,12 +59,12 @@ public class Slutprojekt {
 			return;
 		}
 		String newUnknown = formatWord(guess);
-		
+
 		if (unknown.equals(newUnknown)) {
 			playerGuess++;
 			wrongGuess.add(guess.toLowerCase());
 			System.out.println(Arrays.toString(wrongGuess.toArray()));
-			int remainingGuesses = 10-playerGuess;
+			int remainingGuesses = 10 - playerGuess;
 			System.out.println("Fel gissning du har " + remainingGuesses + " gissningar kvar!");
 		} else {
 			unknown = newUnknown;
@@ -80,6 +84,10 @@ public class Slutprojekt {
 		}
 	}
 
+	/**
+	 * Detta är en metod som väljer ett ord från listorna beroende på vilken
+	 * svårighetsgrad man har valt ut.
+	 */
 	public static void chooseDifficulty() {
 		System.out.println("Välj svårighetsgrad: \n 1 (Lätt) \n 2 (Svår)");
 		difficulties = exception();
@@ -98,14 +106,25 @@ public class Slutprojekt {
 		System.out.println();
 	}
 
+	/**
+	 * Denna metoden skriver ut reglerna till spelet.
+	 */
 	public static void regler() {
 		System.out.println(
 				"Spelets regler: \n Välj svårighetsgrad, klicka 1 för lättare grad, klicka 2 för lite utmaning \n Gissa på ordet \n Gissar du rätt på en bokstav kommer den komma upp i ordet \n Gissar du rätt på hela ordet vinner du \n Lycka till!");
 	}
+
+	/**
+	 * Den här metoden formaterar en String beroende på kända bokstäver. Det spelar
+	 * ingen roll om bokstaven är liten eller stor.
+	 * 
+	 * @param guess den är bokstaven som spelaren har gissat på.
+	 * @return en String som är formaterad
+	 */
 	public static String formatWord(String guess) {
 		String newUnknown = "";
 		for (int i = 0; i < word.length(); i++) {
-			char wordChar = Character.toLowerCase(word.charAt(i));
+			char wordChar = Character.toLowerCase(word.charAt(i)); //CharAt är en funktion som kollar vad ett visst tecken är vid en viss index (placering).
 			char guessChar = Character.toLowerCase(guess.charAt(0));
 			if (wordChar == guessChar) {
 				newUnknown += guessChar;
@@ -118,6 +137,13 @@ public class Slutprojekt {
 		return newUnknown;
 	}
 
+	/**
+	 * Denna metod gör så att om man skriver in en bokstav där man ska skriva in en
+	 * int så skickar den tillbaka ett meddelande som säger att man måste skriva en
+	 * int.
+	 * 
+	 * @return Den skrivna integern
+	 */
 	public static int exception() {
 		while (true) {
 			try {
