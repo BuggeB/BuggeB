@@ -22,7 +22,7 @@ public class Slutprojekt {
 	/**
 	 * Startar själva hänga gubbe spelet
 	 */
-	public static void main() {
+	public static void main(String[] args) {
 		Spelet();
 
 	}
