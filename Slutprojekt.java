@@ -38,7 +38,10 @@ public class Slutprojekt {
 	}
 
 	public static void hang(String guess) {
-		if ()
+		if (wrongGuess.contains(guess.toLowerCase())) {
+			System.out.println("Du har redan gissat på denna bokstav!");
+			return;
+		}
 		String newUnknown = formatWord(guess);
 		
 		if (unknown.equals(newUnknown)) {
